@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+
+{% block main_content %}
+
+<div class="w-screen h-screen flex flex-col justify-center items-center">
+    <form action = '/locate' class="flex gap-4">
+        <input type="text" name="states" id="" placeholder="Put your location" class="border rounded-lg p-2 outline-none">
+        <button type="submit" class="border p-2 rounded-lg">Check Weather</button>
+    </form>
+
+
+    <div class="p-8">
+
+
+        <div class="p-2">
+            <div class="border rounded-lg p-4">
+
+                <div class="flex gap-2">
+                    <p>Counrty name: </p>
+                    {{ w['name'] }}
+                </div>
+
+
+                <div class="flex gap-2">
+                    <p>Temperature in Celcius: </p>
+                    {{ w['main']['temp'] }}
+                </div>
+
+
+                <div class="flex gap-2">
+                    <p>Weather Description: </p>
+                    {{ w['weather'][0]['description'] }}
+                </div>
+                
+
+            </div>
+
+        </div>
+    
+    
+    </div>
+</div>
+
+
+
+{% endblock %}
