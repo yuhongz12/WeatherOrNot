@@ -1,8 +1,9 @@
 from crypt import methods
 import sys
 import json
-import requests
+import requests, random
 from flask import Flask, request, render_template, redirect, jsonify
+import country
 
 app = Flask('__name__')
 
@@ -40,28 +41,24 @@ def locate():
     if not states:
         return jsonify([])
 
+    data = get_weather(re_formated(states))
 
-    file = open('city.list.json')
-    datas = json.load(file)
 
-    l = []
+    new_arr = []
 
-    for items in datas:
-        # i want to check if the city haas better weather
+    for i in range(5):
+        # check if the city haas better weather
+        w = get_weather(re_formated(country.all_country[random.randint(0,194)]['country']))
+
+        if w['name']:
+
+            new_arr.append(w)
+
         # if true;
-        # -> GIVE NEW array with only bes\tter weather
+        # -> GIVE NEW array with only better weather
+        # then pick randomnly from those
 
 
-    w = get_weather(re_formated(states))
-    return render_template('locate.html', w = w)
-
-
-
-@app.route('/all_city')
-def all_city():
-
-    
-
-    return jsonify(l)
+    return render_template('locate.html', w = data, new_arr = new_arr)
 
 
