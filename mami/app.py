@@ -1,5 +1,6 @@
 from crypt import methods
 import sys
+import json
 import requests
 from flask import Flask, request, render_template, redirect, jsonify
 
@@ -22,6 +23,10 @@ def re_formated(s):
     return s.replace(' ', '+')
 
 
+def other_cities():
+    ...
+
+
 @app.route('/')
 def index():
 
@@ -32,8 +37,31 @@ def index():
 def locate():
 
     states = request.args.get('states')
-    if states:
-        w = get_weather(re_formated(states))
-        return jsonify(w)
+    if not states:
+        return jsonify([])
 
-    return jsonify()
+
+    file = open('city.list.json')
+    datas = json.load(file)
+
+    l = []
+
+    for items in datas:
+        # i want to check if the city haas better weather
+        # if true;
+        # -> GIVE NEW array with only bes\tter weather
+
+
+    w = get_weather(re_formated(states))
+    return render_template('locate.html', w = w)
+
+
+
+@app.route('/all_city')
+def all_city():
+
+    
+
+    return jsonify(l)
+
+

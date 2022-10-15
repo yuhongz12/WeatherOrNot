@@ -1,13 +1,14 @@
+let input = document.querySelector('form');
 
-function locate() {
-    var aj = new XMLHttpRequest();
+input.addEventListener('submit', async function() {
+    let response = await fetch('/locate?q=' + input.value);
+    let shows = await response.text();
 
-    // when the page is loaded
-    aj.onreadystatechange = () => {
-        if (aj.readyState == 4 && aj.status == 200) {
-            $('#weather').html(aj.responseText);
-        }
+    let html = '';
+    for (let id in shows) {
+        let title = shows[id].title.replace('<', '&lt;').replace('&', '&amp;');
+        html += '<div>' + title + '</div>';
     }
-    aj.open('GET', 'weather.html', true);
-    aj.send();
-}
+
+    document.querySelector('#change').innerHTML = html;
+});
