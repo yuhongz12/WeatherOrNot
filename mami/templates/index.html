@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+
+{% block main_content %}
+
+<div class="w-screen h-screen flex flex-col justify-center items-center">
+    <form action = '/locate' onsubmit="locate(this)" class="flex gap-4">
+        <input type="text" name="states" id="" placeholder="Put your location" class="border rounded-lg p-2 outline-none">
+        <button type="submit" class="border p-2 rounded-lg">Check Weather</button>
+    </form>
+    
+    <div id="weather">
+    
+    </div>
+
+</div>
+{% endblock %}

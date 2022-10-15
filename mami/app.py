@@ -1,6 +1,7 @@
+from crypt import methods
 import sys
 import requests
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, jsonify
 
 app = Flask('__name__')
 
@@ -24,11 +25,15 @@ def re_formated(s):
 @app.route('/')
 def index():
 
-    states = 'los angeles'
-    h = get_weather(re_formated(states))
+    return render_template('index.html')
 
-    if h['main']['feels_like'] > h['main']['temp']:
-        return 'Feels worse than it looks like'
 
-    return 'Feels actually better than it looks like'
+@app.route('/locate')
+def locate():
 
+    states = request.args.get('states')
+    if states:
+        w = get_weather(re_formated(states))
+        return jsonify(w)
+
+    return jsonify()
