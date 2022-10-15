@@ -13,12 +13,10 @@ def get_weather(states):
     return val
 
 
-def re_formated(s, type):
+def re_formated(s):
     '''
-    Replace all spaces by '&' or by '+'
+    Replace all spaces by '+'
     '''
-    if type == 'api':
-        return s.replace(' ', '&')
 
     return s.replace(' ', '+')
 
@@ -26,11 +24,11 @@ def re_formated(s, type):
 @app.route('/')
 def index():
 
-    states = 'new york'
-    h = get_weather(re_formated(states, 'api'))
+    states = 'los angeles'
+    h = get_weather(re_formated(states))
 
-    google_search = f"https://www.google.com/search?q={re_formated(h['weather'][0]['description'], 'google')}"
+    if h['main']['feels_like'] > h['main']['temp']:
+        return 'Feels worse than it looks like'
 
-    return redirect(google_search)
-
+    return 'Feels actually better than it looks like'
 
