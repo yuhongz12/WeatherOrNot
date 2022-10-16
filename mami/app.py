@@ -66,28 +66,42 @@ def locate():
     to_render = list()
 
 
-    for items in data:
-        for city in other_countries:
-            if city['main']['temp'] > items['temperature']:
-                weather = {
-                    'country_name': city['name'],
-                    'message': 'It is much more warm',
-                    'flag_img': f"https://countryflagsapi.com/png/{re_formated(city['name'])}",
-                    'details_link': f"https://en.wikipedia.org/wiki/{re_formated(city['name'])}"
-                }
-                to_render.append(weather)
+    for city in other_countries:
 
-            else:
-                weather = {
-                    'country_name': city['name'],
-                    'message': 'It is much more fresher',
-                    'flag_img': f"https://countryflagsapi.com/png/{re_formated(city['name'])}",
-                    'details_link': f"https://en.wikipedia.org/wiki/{re_formated(city['name'])}"
-                }
-                to_render.append(weather)
-                
+        if city['main']['temp'] > data['main']['temp']:
+            weather = {
+                'country_name': city['name'],
+                'message': 'It is much more warm',
+                'flag_img': f"https://countryflagsapi.com/png/{re_formated(city['name'])}",
+                'details_link': f"https://en.wikipedia.org/wiki/{re_formated(city['name'])}"
+            }
+            to_render.append(weather)
+
+        else:
+            weather = {
+                'country_name': city['name'],
+                'message': 'It is much more fresher',
+                'flag_img': f"https://countryflagsapi.com/png/{re_formated(city['name'])}",
+                'details_link': f"https://en.wikipedia.org/wiki/{re_formated(city['name'])}"
+            }
+            to_render.append(weather)
 
 
-    return jsonify(to_render)
+    final_render = list()
+
+    data_details = {
+        'country_name': data['name'],
+        'message': 'Our Funny message',
+        'weather': data['weather'][0]['description']
+    }
+
+    all_details = {
+        'actual_location': data_details,
+        'other_countries': to_render
+    }           
+
+    final_render.append(all_details)
+
+    return jsonify(final_render)
 
 
