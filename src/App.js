@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react";
 import Weather from "./Weather/Weather";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import quote from "./Quote/Quote";
+import Quote from "./Quote/Quote";
 function App() {
 
   const [lat, setLat] = useState([]);
@@ -44,19 +45,6 @@ function App() {
           });
     }
 
-    // var input = document.getElementById("userCity");
-    //
-    // input.addEventListener("keypress", function(event) {
-    //     // If the user presses the "Enter" key on the keyboard
-    //     if (event.key === "Enter") {
-    //         // Cancel the default action, if needed
-    //         event.preventDefault();
-    //         // Trigger the button element with a click
-    //         fetchD(input.value);
-    //     }
-    // });
-
-
   return (
     <div className={"container"}>
         <div className="form-check form-switch">
@@ -70,18 +58,25 @@ function App() {
                        if (event.key === "Enter") {
                            fetchD(document.getElementById("userCity").value)
                            console.log(document.getElementById("userCity").value)
+
                        }
                 }}/>
             <button className="btn btn-outline-secondary" type="button" id="userCity-submit" onClick={() => {
-                fetchD(document.getElementById("userCity").value)}}>Search</button>
+                fetchD(document.getElementById("userCity").value)
+
+            }}>Search</button>
         </div>
 
 
-        {(typeof data.main != 'undefined') ? (
-            <Weather weatherData={data} lang ={checked}/>
-        ): (
+        {(typeof data.main != 'undefined') ?
+
+            <div>
+                <Weather weatherData={data} lang ={checked}/>
+                <Quote lang={checked} data={data}/>
+            </div>
+        :
             <div></div>
-        )}
+        }
     </div>
   );
 }

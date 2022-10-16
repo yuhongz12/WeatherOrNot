@@ -8,8 +8,6 @@ const Weather = ({weatherData, lang}) => {
     }
     const unit = "imperial"
 
-    const timenow = new Date()
-
     const temp = weatherData.main.temp;
 
     const [time, setTime] = useState(Date.now());
@@ -31,7 +29,6 @@ const Weather = ({weatherData, lang}) => {
             <div>
                 <h4>{new Date(time).toString()}</h4>
                 <h1>{Math.round(temp)} {unit === "imperial"? "Fahrenheit" : "Celsius" }</h1>
-                <Quote lang={lang} temp={temp}/>
             </div>
         </div>
     );
