@@ -60,4 +60,4 @@
 
 
 #### === nice weather clothes ===
-1. 
+1. I shall bequeath upon you the obligation to wear your Sunday best
