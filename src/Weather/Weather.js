@@ -1,28 +1,37 @@
+import Quote from "../Quote/Quote";
+import {useEffect, useState} from "react";
 
-const Weather = ({weatherData}) => {
-    const unit = "Celsius";
+const Weather = ({weatherData, lang}) => {
+
+    function convertCtoF (t) {
+        return (t *  (9/5)) + 32
+    }
+    const unit = "imperial"
+
+    const timenow = new Date()
+
+    const temp = weatherData.main.temp;
+
+    const [time, setTime] = useState(Date.now());
+
+    useEffect(() => {
+        const interval = setInterval(() => setTime(Date.now()), 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
     return(
+        <div className={"container mt-4"}>
 
-
-        // <div className="card">
-        //
-        //     <div className="card-body">
-        //         <h5 className="card-title">City: { weatherData != null && weatherData.cod === 200? weatherData.name : ""}</h5>
-        //         <h6 className="card-subtitle mb-2 text-muted">Temperature: {weatherData.main.temp}</h6>
-        //         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the
-        //             card's content.</p>
-        //     </div>
-        // </div>
-
-        <div className={"container"}>
-            <div className={"w-title mt-5 mb-5"}>
+            <div className={"w-title mt-5 mb-5 d-flex justify-content-between"}>
                 <h1>{weatherData.name}</h1>
-            </div>
-            <div>
-                <h1>{Math.round(weatherData.main.temp)} {unit}</h1>
-            </div>
-            <div>
 
+            </div>
+            <div>
+                <h4>{new Date(time).toString()}</h4>
+                <h1>{Math.round(temp)} {unit === "imperial"? "Fahrenheit" : "Celsius" }</h1>
+                <Quote lang={lang} temp={temp}/>
             </div>
         </div>
     );
