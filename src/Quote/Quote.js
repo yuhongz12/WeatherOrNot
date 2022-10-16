@@ -57,7 +57,7 @@ const Quote = ({data, lang}) => {
                 cloth = 'Your clothes should be thiccc today!'
             } else if (40.0 < temp && temp < 60.0) {
                 quote = "It's a bit chilly outside"
-                cloth = 'Don\'t forget your hoddie'
+                cloth = 'Don\'t forget your hoodie'
             } else if (60.0 < temp  && temp < 75.0) {
                 quote = warmSlang[Math.floor(Math.random()*warmSlang.length)]
                 cloth = warmCloth[Math.floor(Math.random()*warmCloth.length)]

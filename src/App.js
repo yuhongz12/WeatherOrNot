@@ -167,7 +167,8 @@ function App() {
                     {recommendationDatas.map((user) => <Recommendation d={user}/>)}
                 </div>
             </div>
-            : <div></div>}
+            : <div>
+                <h3>Please enable location to work properly</h3></div>}
         
             
         </div>
