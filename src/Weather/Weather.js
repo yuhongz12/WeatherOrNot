@@ -19,6 +19,8 @@ const Weather = ({weatherData, lang}) => {
         };
     }, []);
 
+    console.log(weatherData.name, weatherData.coord);
+
     return(
         <div className={"container mt-4"}>
 
@@ -28,7 +30,7 @@ const Weather = ({weatherData, lang}) => {
             </div>
             <div>
                 <h4>{new Date(time).toString()}</h4>
-                <h1>{Math.round(temp)} {unit === "imperial"? "Fahrenheit" : "Celsius" }</h1>
+                <h3>{Math.round(temp)} {unit === "imperial"? "Fahrenheit" : "Celsius" }</h3>
             </div>
         </div>
     );

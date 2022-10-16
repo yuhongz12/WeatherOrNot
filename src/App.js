@@ -111,6 +111,7 @@ function App() {
             navigator.geolocation.getCurrentPosition(function (position) {
                 setLat(position.coords.latitude);
                 setLong(position.coords.longitude);
+                console.log(lat,long);
             });
 
 
@@ -161,9 +162,10 @@ function App() {
         {(typeof data.main != 'undefined') ?
 
             <div>
+
                 <Weather weatherData={data} lang ={checked}/>
                 <Quote lang={checked} data={data}/>
-                <div className="d-flex">
+                <div className="d-flex pt-5">
                     {recommendationDatas.map((user) => <Recommendation d={user}/>)}
                 </div>
             </div>

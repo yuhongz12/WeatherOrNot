@@ -93,8 +93,8 @@ const Quote = ({data, lang}) => {
     return(
         <div>
 
-            <h3>{quote}</h3>
-            <h3>{cloth}</h3>
+            <h1>{quote}</h1>
+            <h1>{cloth}</h1>
         </div>
     )
 }
