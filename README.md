@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+![Weather Or Not Logo](/weather-or-not.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weather Or Not
 
-## Available Scripts
+ ### Reading temperatures from traditional weather sources is often mundane and tedious. Instead, why not read a quick funny note about the current weather to brighten up your potentially cloudy day?  
+   
+  
+This project was done at HackHarvard 2022.
 
-In the project directory, you can run:
+You can find more about this project at Devpost: https://devpost.com/software/weather-or-not-w29v4e
 
-### `npm start`
+Demo: https://dapper-brioche-69e4d3.netlify.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Contributors:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Yuhong Zhao: [GitHub](https://github.com/yuhongz12) [LinkedIn](https://www.linkedin.com/in/yuhong-zhao-ab0a141b2/)
+* Maminiaina Ravaloarison : [GitHub](https://github.com/Mami-Em) [LinkedIn](https://www.linkedin.com/in/maminiaina-ravaloarison-ab1893245/)
+* Sandy Zheng: [GitHub](https://github.com/sandyzng104) [LinkedIn](https://www.linkedin.com/in/sandyzheng/)
 
-### `npm run build`
+--- 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Inspiration
+The monotony of searching up the weather does not generate the excitement necessary to encourage users to check it every day. The importance of frequently checking it cannot be understated in preventing any unpleasant surprises. We hoped to come up with a way that would make people, specifically the younger generation, look forward to looking up the weather often.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## What it does
+It replaces the typical temperature readings with either slang or pretentious jargon. This allows users to not only get a laugh out at least once a day, but also are able to quickly understand what possibilities the weather could allow them to do in a silly manner.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How we built it
+We used ReactJS for the front-end application and handle client-side logic. We also embedded Bootstrap for the basic style of the elements as well as some customized CSS. For the backend, we used Flask, a Python web Framework to query the API and output the data to React in JSON format.
 
-### `npm run eject`
+## Challenges we ran into
+Working with React and API, one of the most common challenges we ran into was our HTTP request being blocked by CORS policy and our React render elements being blocked by Adblocker. There was a couple of ways to solve this challenge, which was to use a proxy server. Another issue we ran into was we hit our limit for the API, and therefore the API wouldn't provide us with data anymore.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Accomplishments that we're proud of
+We are proud that we got an MVP working. Our team didn't have any formal experience with web development using React, so this was a really helpful learning experience. Despite the challenges we faced, we managed to create a working prototype.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## What we learned
+We learned the basics of React and how to fetch data from API endpoints. We also learned ways to solve CORS policy problems, which we can carry with us in the future.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for Weather Or Not
+We plan on creating a wider variety of slang and pretentious jargon for more specific temperature readings.
