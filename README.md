@@ -1,4 +1,7 @@
-![Weather Or Not Logo](/weather-or-not.png)
+<div style="display: flex; justify-content: center">
+    <img  src="./weather-or-not.png" />
+</div>
+
 
 # Weather Or Not
 
